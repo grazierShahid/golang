@@ -94,9 +94,3 @@ for index, char := range string {}
 // Channel
 for value := range channel {}
 ```
-
-## Running the Code
-
-```bash
-go run main.go
-```

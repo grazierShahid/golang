@@ -135,11 +135,3 @@ fmt.Print("No newline")
 fmt.Println("With newline")
 fmt.Printf("Formatted: %d, %s", 42, "text")
 ```
-
-## Running the Code
-
-To run the code, use the following command:
-
-```bash
-go run main.go
-```

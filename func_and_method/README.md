@@ -193,11 +193,3 @@ func (u *User) changeNameTo(name string) {
 | Syntax               | `func name(params) returnType`                | `func (receiver Type) name(params) returnType`               |
 | Usage                | Called directly                               | Called on an instance of the type                            |
 | Multiple Definitions | Cannot have multiple functions with same name | Can have multiple methods with same name for different types |
-
-## Running the Code
-
-To run the code, use the following command:
-
-```bash
-go run main.go
-```
