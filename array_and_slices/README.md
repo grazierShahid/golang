@@ -88,7 +88,7 @@ The tutorial demonstrates using functions as arguments for:
 - Filtering data (`numFilter`)
 - Finding elements (`whoIsYounger`)
 
-## Project Structure
+## Code Structure
 
 The `main.go` file demonstrates concepts in this order:
 
