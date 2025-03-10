@@ -127,6 +127,48 @@ func main() {
 	}
 	fmt.Println(mat) // [[0 1 2] [1 2 3]]
 
+	// array vs slice relation
+
+	// when we copy a slice from an array, then actually copied its memory address. ahh!! wait, lets see an example
+	arr := [5]int{1, 2, 3, 4, 5}
+	sli := arr[:2] // copied first two indexs from arr
+	arr[0] = 69    // it changes in sli too
+	sli[1] = 96    // similarly changes in arr
+
+	fmt.Printf("arr: %v, slice: %v, len = %d, cap = %d\n", arr, sli, len(sli), cap(sli)) // arr: [69 96 3 4 5], slice: [69 96], len = 2, cap = 5
+
+	sli = append(sli, 6, 7) // apped 2 elements, so capacity will not increases
+	arr[1] = 333
+	sli[0] = 999
+	fmt.Printf("arr: %v, slice: %v, len = %d, cap = %d\n", arr, sli, len(sli), cap(sli)) // arr: [999 333 6 7 5], slice: [999 333 6 7], len = 4, cap = 5
+
+	sli = append(sli, 8, 9) // now what happen? len(sli) cross the cap(sli)
+	arr[1] = 1
+	sli[0] = 2
+	fmt.Printf("arr: %v, slice: %v, len = %d, cap = %d\n", arr, sli, len(sli), cap(sli)) // arr: [999 1 6 7 5], slice: [2 333 6 7 8 9], len = 6, cap = 10
+
+	// thats mean, slice copy array memory address and work as well until it does not crosses the capacity of array length
+	// after crossing the array length slice create its own memory and be separeted from the array
+
+	// Remove an element from slice
+	s1 := []int{1, 2, 3, 4, 5}      // want to remove 3rd index (3)
+	s2 := append(s1[:2], s1[3:]...) // need to make variadic as append() defined
+	fmt.Println(s2)                 // [1 2 4 5]
+
+	// MAP (just look a bit)
+	m := map[string]int{
+		"abc": 10,
+		"xyz": 20,
+	}
+	fmt.Println(m, m["abc"]) // map[abc:10 xyz:20] 10
+
+	val, ok := m["pqrs"]
+	fmt.Println(val, ok) // 0 false
+	m["pqrs"] = 30
+	fmt.Println(m["pqrs"], val, ok) // 30 0 false ; here does not change
+
+	delete(m, "pqrs") // simply will be deleted
+
 	// try to play by making some function (higher-order)
 
 	// for no reason - 1
