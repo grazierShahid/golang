@@ -17,6 +17,12 @@ func main() {
 	str4 := string(runes)
 	fmt.Println(str4) // grazier
 
+	// rune create by slice itself
+	temp := []byte{0x67, 0x72, 0x61, 0x7a, 0x69, 0x65, 0x72}
+	tempStr := string(temp)
+	fmt.Println(temp)    // [103 114 97 122 105 101 114]
+	fmt.Println(tempStr) // grazier
+
 	str = "abc" // string is immutable (non-changable on index)
 
 	// for loop (as the next line) hold string as byte
